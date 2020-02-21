@@ -1,4 +1,7 @@
 import { WIDTH, HEIGHT, WHITE } from "./constans/constans.js";
+import { Game } from "./models/Game.js";
+import { GameView } from "./views/GameView.js";
+import { GameController } from "./controllers/GameController.js";
 
 export class Application {
   constructor() {
@@ -23,3 +26,12 @@ export class Application {
 }
 
 const app = (window.app = new Application());
+
+const main = () => {
+  const model = new Game(4, 1);
+  const view = new GameView(model);
+  const controller = new GameController(model, view);
+  controller.loadedGame();
+};
+
+window.onload = main;

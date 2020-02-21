@@ -1,18 +1,18 @@
-import { game } from '../models/Game.js'
-
-class GameView {
+export class GameView {
   constructor(game) {
     this.game = game;
   }
-  loadedGame() {
-    game.drawShape();
-    setInterval(() => {
-      for (let i = 0; i < game.shapesOnStage; i++) {
-        game.drawShape();
+  viewGame() {
+    this.game.createShape();
+
+    const render = () => {
+      for (let i = 0; i < this.game.shapesOnStage; i++) {
+        this.game.createShape();
       }
+    };
+    setInterval(() => {
+      requestAnimationFrame(render);
     }, 1000);
-    app.ticker.add(game.tick.bind(game));
+    app.ticker.add(this.game.tick.bind(this.game));
   }
 }
-const view = new GameView(game);
-view.loadedGame();
