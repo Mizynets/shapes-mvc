@@ -4,6 +4,7 @@
 
 ```bash
 git clone https://github.com/Mizynets/shapes-mvc.git
+cd shapes-mvc
 yarn install
 yarn start
 ```
